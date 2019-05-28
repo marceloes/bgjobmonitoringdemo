@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace WorkerJob
 {
@@ -15,7 +16,12 @@ namespace WorkerJob
             var builder = new HostBuilder();
             builder.ConfigureWebJobs(b =>
                 {
-                    b.AddAzureStorageCoreServices();
+                    b.AddAzureStorageCoreServices();                    
+                });
+
+            builder.ConfigureLogging((context, b) =>
+                {
+                    b.AddConsole();
                 });
 
             var host = builder.Build();
