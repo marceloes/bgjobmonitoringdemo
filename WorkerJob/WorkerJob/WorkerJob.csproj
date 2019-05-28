@@ -42,6 +42,9 @@
     <Reference Include="Microsoft.Azure.WebJobs.Extensions, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.WebJobs.Extensions.3.0.1\lib\netstandard2.0\Microsoft.Azure.WebJobs.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Azure.WebJobs.Extensions.Storage, Version=3.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.WebJobs.Extensions.Storage.3.0.3\lib\netstandard2.0\Microsoft.Azure.WebJobs.Extensions.Storage.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Azure.WebJobs.Host, Version=3.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.WebJobs.3.0.4\lib\netstandard2.0\Microsoft.Azure.WebJobs.Host.dll</HintPath>
     </Reference>
@@ -152,11 +155,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Functions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="appsettings.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

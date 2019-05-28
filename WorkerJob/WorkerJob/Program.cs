@@ -16,7 +16,8 @@ namespace WorkerJob
             var builder = new HostBuilder();
             builder.ConfigureWebJobs(b =>
                 {
-                    b.AddAzureStorageCoreServices();                    
+                    b.AddAzureStorageCoreServices();
+                    b.AddAzureStorage();
                 });
 
             builder.ConfigureLogging((context, b) =>
