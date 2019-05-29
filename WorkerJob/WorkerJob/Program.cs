@@ -23,6 +23,12 @@ namespace WorkerJob
             builder.ConfigureLogging((context, b) =>
                 {
                     b.AddConsole();
+
+                    string instrumentationKey = context.Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"];
+                    if (!string.IsNullOrEmpty(instrumentationKey))
+                    {
+                        b.AddApplicationInsights(o => o.InstrumentationKey = instrumentationKey);
+                    }
                 });
 
             var host = builder.Build();
