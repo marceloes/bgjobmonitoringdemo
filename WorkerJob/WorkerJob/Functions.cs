@@ -12,9 +12,9 @@ namespace WorkerJob
 {
     public class Functions
     {
-        public static  string queueName = ConfigurationManager.AppSettings["queue"];
+        public static readonly string queueName = ConfigurationManager.AppSettings["queue"];
 
-        public static void ConsumeQueueMessage([QueueTrigger("%queueName%")] string message, ILogger logger)
+        public static void ConsumeQueueMessage([QueueTrigger("worker-requests-queue")] string message, ILogger logger)
         {
             logger.LogInformation($"Started consuming message {message}");
         }
