@@ -17,15 +17,14 @@ namespace WorkerJob
 
         public static void ConsumeQueueMessage([QueueTrigger("worker-requests-queue")] string message, ILogger logger)
         {
-            
-            logger.LogInformation(999, "Started consuming message '{message}'", message);
-            logger.LogInformation(998, "Processing begins...");
+            var threadName = Thread.CurrentThread.ManagedThreadId;
+            logger.LogInformation(999, "{name} - Started consuming message '{message}'", threadName, message);
+            logger.LogInformation(998, "{name} - Processing begins for '{message}'...", threadName, message);
             Random r = new Random();
             int interval = r.Next(0, 300);
-            logger.LogInformation(997, "It will take {interval} seconds", interval);
+            logger.LogInformation(997, "{name} - It will take {interval} seconds to process '{message}'", threadName, interval, message);
             Thread.Sleep(interval * 1000);
-            logger.LogInformation(996, "Finished consuming message", message);
-            
+            logger.LogInformation(996, "{name} - Finished consuming message '{message}'", threadName, message);            
         }
     }
 }
