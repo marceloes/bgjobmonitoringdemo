@@ -13,8 +13,6 @@ namespace WorkerJob
 {
     public class Functions
     {
-        public static readonly string queueName = ConfigurationManager.AppSettings["queue"];
-
         public static void ConsumeQueueMessage([QueueTrigger("worker-requests-queue")] string message, ILogger logger)
         {
             var threadName = Thread.CurrentThread.ManagedThreadId;
