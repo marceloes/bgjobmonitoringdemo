@@ -13,9 +13,12 @@ namespace ProducerWorker
 {
     public class Functions
     {
-        public static void ProduceMessages ([TimerTrigger("0 */15 * * * 1-5", RunOnStartup = true)] TimerInfo timerInfo, [Queue("worker-requests-queue")] out string message)
+        public static void ProduceMessages ([TimerTrigger("*/5 * * * * *")] TimerInfo timer, [Queue("worker-requests-queue")] out string message, ILogger logger)
         {
-            message = String.Format("Request-{0}-{1}", DateTime.Now, new Random().Next(0, 10000));
+            //log.LogInformation(800, "Created message {message}", message);
+            var text = String.Format("Request-{0}-{1}", DateTime.Now, new Random().Next(0, 10000));
+            logger.LogInformation(800, "Message logged = {text}", text);
+            message = text;            
         }
     }
 }

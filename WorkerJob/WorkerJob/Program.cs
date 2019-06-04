@@ -17,7 +17,8 @@ namespace WorkerJob
             builder.ConfigureWebJobs(b =>
                 {
                     b.AddAzureStorageCoreServices();
-                    b.AddAzureStorage();                    
+                    b.AddAzureStorage();
+                    b.AddTimers();
                 });
 
             builder.ConfigureLogging((context, b) =>

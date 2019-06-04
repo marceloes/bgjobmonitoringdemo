@@ -13,6 +13,7 @@ namespace ProducerWorker
     {
         static void Main(string[] args)
         {
+            
             var builder = new HostBuilder();
             builder.ConfigureWebJobs(b =>
             {
